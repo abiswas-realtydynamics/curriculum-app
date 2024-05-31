@@ -8,22 +8,8 @@ pipeline {
     }
 
     stage('List') {
-      parallel {
-        stage('List') {
-          steps {
-            sh 'ls -la'
-          }
-        }
-
-        stage('Install Node') {
-          steps {
-            sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
-            sh '''export NVM_DIR="$HOME/.nvm"
-
-[ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh" && nvm install 20'''
-          }
-        }
-
+      steps {
+        sh 'ls -la'
       }
     }
 
