@@ -15,12 +15,19 @@ pipeline {
           }
         }
 
-        stage('Front-End Unit Test') {
+        stage('Install Node') {
           steps {
-            sh 'chmod -R 777 curriculum-front && echo $(node -v) && cd curriculum-front && pwd && npm i && npm run test:unit'
+            sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash'
+            sh 'nvm install 20'
           }
         }
 
+      }
+    }
+
+    stage('Unit Test') {
+      steps {
+        sh 'chmod -R 777 curriculum-front && echo $(node -v) && cd curriculum-front && pwd && npm i && npm run test:unit'
       }
     }
 
