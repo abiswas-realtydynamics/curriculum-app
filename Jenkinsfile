@@ -15,7 +15,7 @@ pipeline {
 
     stage('Unit Test') {
       steps {
-        sh 'chmod -R 777 curriculum-front  && cd curriculum-front && pwd && npm i && npm run test:unit'
+        sh 'cd curriculum-front && npm i && npm run test:unit'
       }
     }
 
