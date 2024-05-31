@@ -17,7 +17,7 @@ pipeline {
 
         stage('Front-End Unit Test') {
           steps {
-            sh 'cd curriculum-front && pwd && npm i && npm run test:unit'
+            sh 'chmod -R 755 curriculum-front && cd curriculum-front && pwd && npm i && npm run test:unit'
           }
         }
 
